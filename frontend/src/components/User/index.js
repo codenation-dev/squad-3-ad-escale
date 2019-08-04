@@ -44,15 +44,15 @@ const User = () => {
             {error && <p className="error">Ocorreu um erro ao atualizar os dados</p>}
             <div>
                 <label>Nome</label>
-                <input type="text" value={name} onChange={e => setName(e.target.value)}/>
+                <input type="text" value={name || ''} onChange={e => setName(e.target.value)}/>
             </div>
             <div>
                 <label>Email</label>
-                <input type="text" value={email} disabled/>
+                <input type="text" value={email || ''} disabled/>
             </div>
             <div>
                 <label>Telefone</label>
-                <input type="text" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)}/>
+                <input type="text" value={phoneNumber || ''} onChange={e => setPhoneNumber(e.target.value)}/>
             </div>
             <Save onClick={handleUpdateUser}>
                 {!isLoading && 'Salvar'}

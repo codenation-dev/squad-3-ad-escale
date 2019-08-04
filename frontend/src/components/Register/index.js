@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 import { Form, Container } from "./styles";
-import api from "../../services/api";
 import { isAuthenticated } from "../../services/auth"
+import { createUser } from "../../services/user"
 
 const Register = ({ history }) => {
     const [name, setName] = useState('')
@@ -34,7 +34,7 @@ const Register = ({ history }) => {
 
         setIsLoading(true)
         try {
-            await api.post("/users", { name, email, password, confirm_password: confirmPassword })
+            await createUser(name, email, password, confirmPassword)
             history.push("/")
         } catch (err) {
             setError("Ocorreu um erro ao se cadastrar")
