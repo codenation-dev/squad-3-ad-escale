@@ -62,6 +62,7 @@ export const Button = styled.button`
   background-color: transparent;
   color: #fff;
   font-size: 16px;
+  -webkit-appearance: none;
   cursor: pointer;
 `;
 

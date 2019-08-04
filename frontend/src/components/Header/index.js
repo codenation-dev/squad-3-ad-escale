@@ -45,7 +45,7 @@ function Header({ location, history }) {
         </Logo>
       </Link>
       <SearchBar>
-        <input type="text" placeholder="Digite o termo da busca" value={searchString} onChange={(e) => handleChangeSearchString(e.target.value)}/>
+        <input type="text" placeholder="Buscar..." value={searchString} onChange={(e) => handleChangeSearchString(e.target.value)}/>
         <FontAwesomeIcon icon={faSearch} />
       </SearchBar>
       { !isAuthenticated() ? (
