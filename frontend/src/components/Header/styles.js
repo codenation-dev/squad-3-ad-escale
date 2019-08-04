@@ -15,7 +15,13 @@ export const Container = styled.div`
 
 export const Logo = styled.div`
   display: flex;
+  align-items: center;
   
+  img {
+    max-width: 100px;
+    max-height: 60px;
+  }
+
   h1 {
     margin-left: 5px;
   }

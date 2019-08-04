@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
-import { Link, withRouter } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import { Link, withRouter } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSignOutAlt, faPaw, faPlusCircle, faSearch } from '@fortawesome/free-solid-svg-icons'
 
-import { Container, Logo, SearchBar, Button, Menu, MenuIcon } from './styles';
+import LogoImage from '../../assets/farejando.png'
+import { Container, Logo, SearchBar, Button, Menu, MenuIcon } from './styles'
 import { isAuthenticated, logout } from '../../services/auth'
 
 function Header({ location, history }) {
@@ -39,7 +40,7 @@ function Header({ location, history }) {
     <Container>
       <Link to="/">
         <Logo>
-          <FontAwesomeIcon icon={faPaw} size="2x" />
+          <img src={LogoImage} alt="Farejando"/>
           <h1>Farejando</h1>
         </Logo>
       </Link>
