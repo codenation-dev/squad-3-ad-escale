@@ -6,6 +6,8 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 import { getPet } from "../../services/pet"
 
+import PetImages from '../PetImages'
+
 import { Container } from './styles'
 
 const PetCard = (props) => {
@@ -41,6 +43,7 @@ const PetCard = (props) => {
 
     return (
         <Container>
+            <PetImages images={pet.images} />
             {pet.name}
         </Container>
     )

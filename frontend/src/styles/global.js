@@ -15,6 +15,11 @@ export default createGlobalStyle`
     overflow: hidden;
   }
 
+  .router-container {
+    height: calc(100% - 60px);
+    overflow: auto;
+  }
+
   body {
     font: 14px 'Roboto', sans-serif;
     background: #ecf1f8;

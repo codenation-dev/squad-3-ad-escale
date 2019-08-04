@@ -5,8 +5,7 @@ import { Container } from './styles'
 
 const PetCard = ({ pet }) => {
     return (
-        <Container>
-            {pet.images.length && <img src={pet.images[0].url} alt={pet.name} />}
+        <Container img={pet.images[0].url}>
             <div>
                 <span>{pet.name}</span>
             </div>

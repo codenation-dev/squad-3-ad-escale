@@ -24,17 +24,19 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Header/>
-    <Switch>
-      <Route exact path="/login" component={Login} />
-      <Route path="/cadastro" component={Register} />
-      <PrivateRoute path="/meus-dados" component={User} />
-      <PrivateRoute path="/meus-pets" component={MyPets} />
-      <PrivateRoute exact path="/pets/cadastrar" component={CreatePet} />
-      <Route path="/pets/:petSlug" component={PetDetail} />
-      <Route exact path="/" component={Feed} />
-      <Route exact path="/busca/:searchTerm?" component={Feed} />
-      <Route path="*" component={() => <h1>Page not found</h1>} />
-    </Switch>
+    <div className="router-container">
+      <Switch>
+        <Route exact path="/login" component={Login} />
+        <Route path="/cadastro" component={Register} />
+        <PrivateRoute path="/meus-dados" component={User} />
+        <PrivateRoute path="/meus-pets" component={MyPets} />
+        <PrivateRoute exact path="/pets/cadastrar" component={CreatePet} />
+        <Route path="/pets/:petSlug" component={PetDetail} />
+        <Route exact path="/" component={Feed} />
+        <Route exact path="/busca/:searchTerm?" component={Feed} />
+        <Route path="*" component={() => <h1>Page not found</h1>} />
+      </Switch>
+    </div>
   </BrowserRouter>
 );
 
