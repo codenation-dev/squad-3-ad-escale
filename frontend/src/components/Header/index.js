@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faSignOutAlt, faPaw, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faSignOutAlt, faPaw, faPlusCircle, faSearch } from '@fortawesome/free-solid-svg-icons'
 
-import { Container, SearchBar, Button, UserDiv, Menu } from './styles';
+import { Container, Logo, SearchBar, Button, Menu, MenuIcon } from './styles';
 import { isAuthenticated, logout } from '../../services/auth'
 
 function Header({ history }) {
@@ -18,18 +18,26 @@ function Header({ history }) {
   return (
     <Container>
       <Link to="/">
-        <h1>Farejando</h1>
+        <Logo>
+          <FontAwesomeIcon icon={faPaw} size="2x" />
+          <h1>Farejando</h1>
+        </Logo>
       </Link>
-      <SearchBar placeholder="Digite o termo da busca"/>
+      <SearchBar>
+        <input type="text" placeholder="Digite o termo da busca" />
+        <FontAwesomeIcon icon={faSearch} />
+      </SearchBar>
       { !isAuthenticated() ? (
         <Link to="/login">
           <Button>Entrar</Button>
         </Link>
       ) : (
         <>
-          <UserDiv onClick={() => setShowMenu(!showMenu)}>
-            <FontAwesomeIcon icon={faUser} />
-          </UserDiv>
+          <MenuIcon open={showMenu} onClick={() => setShowMenu(!showMenu)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </MenuIcon>
           { <Menu show={showMenu}>
             <li>
               <Link to="/">
