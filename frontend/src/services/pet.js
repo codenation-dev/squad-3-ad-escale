@@ -11,7 +11,6 @@ export const getPet = async (petSlug) => {
 };
 
 export const searchPets = async (searchTerm) => {
-    console.log(searchTerm)
     const response = await api.get("/pets/search", { params: { term: searchTerm } })
     return response.data.pets
 };

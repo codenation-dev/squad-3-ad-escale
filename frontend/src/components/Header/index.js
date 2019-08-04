@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSignOutAlt, faPaw, faPlusCircle, faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -6,8 +7,27 @@ import { faUser, faSignOutAlt, faPaw, faPlusCircle, faSearch } from '@fortawesom
 import { Container, Logo, SearchBar, Button, Menu, MenuIcon } from './styles';
 import { isAuthenticated, logout } from '../../services/auth'
 
-function Header({ history }) {
+function Header({ location, history }) {
+  const [searchString, setSearchString] = useState('')
   const [showMenu, setShowMenu] = useState(false)
+
+  useEffect(() => {
+    if (location.pathname.includes('/busca/')) {
+      setSearchString(location.pathname.replace('/busca/', ''))
+    }
+  }, [])
+
+  useEffect(() => {
+    if (searchString === '') {
+      history.push('/')
+    } else {
+      history.push(`/busca/${searchString}`)
+    }
+  }, [searchString])
+
+  const handleChangeSearchString = (value) => {
+    setSearchString(value)
+  }
 
   const handleLogout = () => {
     logout()
@@ -24,7 +44,7 @@ function Header({ history }) {
         </Logo>
       </Link>
       <SearchBar>
-        <input type="text" placeholder="Digite o termo da busca" />
+        <input type="text" placeholder="Digite o termo da busca" value={searchString} onChange={(e) => handleChangeSearchString(e.target.value)}/>
         <FontAwesomeIcon icon={faSearch} />
       </SearchBar>
       { !isAuthenticated() ? (
