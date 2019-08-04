@@ -5,8 +5,9 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 import { Form, Container } from "./styles";
 import api from "../../services/api";
+import { isAuthenticated } from "../../services/auth"
 
-const Register = (props) => {
+const Register = ({ history }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -14,6 +15,10 @@ const Register = (props) => {
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
   
+    if (isAuthenticated()) {
+        history.push('/')
+    }
+    
     const handleRegister = async e => {
         e.preventDefault()
         
@@ -30,7 +35,7 @@ const Register = (props) => {
         setIsLoading(true)
         try {
             await api.post("/users", { name, email, password, confirm_password: confirmPassword })
-            props.history.push("/")
+            history.push("/")
         } catch (err) {
             setError("Ocorreu um erro ao se cadastrar")
         }

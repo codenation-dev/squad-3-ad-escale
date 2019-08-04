@@ -3,16 +3,20 @@ import { Link, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
-import { login } from "../../services/auth";
+import { login, isAuthenticated } from "../../services/auth";
 
 import { Form, Container } from "./styles";
 
-const Login = (props) => {
+const Login = ({ history }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
   
+    if (isAuthenticated()) {
+        history.push('/')
+    }
+
     const handleLogin = async e => {
         e.preventDefault();
         if (!email || !password) {
@@ -24,7 +28,7 @@ const Login = (props) => {
 
         try {
             await login(email, password)
-            props.history.push("/")
+            history.push("/")
         } catch (err) {
             if(err.response.data.message) {
                 setError(err.response.data.message)
