@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -20,7 +21,7 @@ const PetCard = (props) => {
             }
         }
         fetch()
-    }, [props])
+    }, [])
 
     if (isLoading) {
         return (

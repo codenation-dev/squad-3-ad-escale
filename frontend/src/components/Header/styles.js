@@ -58,7 +58,7 @@ export const SearchBar = styled.div`
 
 export const Button = styled.button`
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   background-color: transparent;
   color: #fff;
   font-size: 16px;
@@ -124,7 +124,7 @@ export const MenuIcon = styled.div`
 export const Menu = styled.ul`
   transition: .5s opacity;
   opacity: ${props => props.show ? 1 : 0};
-  z-index: ${props => props.show ? 0 : -1};
+  z-index: ${props => props.show ? 1 : -1};
   position: fixed;
   right: 10px;
   top: 50px;

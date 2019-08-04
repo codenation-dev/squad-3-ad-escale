@@ -18,16 +18,13 @@ function Header({ location, history }) {
     }
   }, [])
 
-  useEffect(() => {
-    if (searchString === '') {
-      history.push('/')
-    } else {
-      history.push(`/busca/${searchString}`)
-    }
-  }, [searchString])
-
   const handleChangeSearchString = (value) => {
     setSearchString(value)
+    if (value === '') {
+      history.push('/')
+    } else {
+      history.push(`/busca/${value}`)
+    }
   }
 
   const handleLogout = () => {
@@ -61,19 +58,19 @@ function Header({ location, history }) {
           </MenuIcon>
           { <Menu show={showMenu}>
             <li>
-              <Link to="/">
+              <Link to="/meus-dados" onClick={() => setShowMenu(false)}>
                 <FontAwesomeIcon icon={faUser} />
                 Meus dados
               </Link>
             </li>
             <li>
-              <Link to="/">
+              <Link to="/meus-pets" onClick={() => setShowMenu(false)}>
                 <FontAwesomeIcon icon={faPaw} />
                 Meus pets
               </Link>
             </li>
             <li>
-              <Link to="/">
+              <Link to="/pets/cadastrar" onClick={() => setShowMenu(false)}>
                 <FontAwesomeIcon icon={faPlusCircle} />
                 Cadastrar pet
               </Link>

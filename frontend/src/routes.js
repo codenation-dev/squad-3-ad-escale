@@ -8,6 +8,9 @@ import Feed from './components/Feed'
 import Login from './components/Login'
 import Register from './components/Register'
 import PetDetail from './components/PetDetail'
+import User from './components/User'
+import CreatePet from './components/CreatePet'
+import MyPets from './components/MyPets'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -24,8 +27,10 @@ const Routes = () => (
     <Switch>
       <Route exact path="/login" component={Login} />
       <Route path="/cadastro" component={Register} />
-      {/* <PrivateRoute path="/" component={() => <h1>App</h1>} /> */}
-      <Route path="/pet/:petSlug" component={PetDetail} />
+      <PrivateRoute path="/meus-dados" component={User} />
+      <PrivateRoute path="/meus-pets" component={MyPets} />
+      <PrivateRoute exact path="/pets/cadastrar" component={CreatePet} />
+      <Route path="/pets/:petSlug" component={PetDetail} />
       <Route exact path="/" component={Feed} />
       <Route exact path="/busca/:searchTerm?" component={Feed} />
       <Route path="*" component={() => <h1>Page not found</h1>} />

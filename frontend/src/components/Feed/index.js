@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
@@ -45,7 +45,9 @@ const Feed = (props) => {
     return (
         <Container>
             {pets.map(pet => (
-                <PetCard pet={pet} key={pet._id}/>
+                <Link to={`/pets/${pet.slug}`} key={pet._id}>
+                    <PetCard pet={pet} />
+                </Link>
             ))}
         </Container>
     )
