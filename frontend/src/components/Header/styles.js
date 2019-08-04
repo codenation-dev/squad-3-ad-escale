@@ -41,10 +41,10 @@ export const SearchBar = styled.div`
   border-radius: 15px;
   border: 1px solid #cecece;
   background-color: #fff;
-  margin: 0 25px;
+  margin: 0 25px 0 15px;
 
   input {
-    flex: 1;
+    width: 100%;
     padding: 0;
     border: none;
     -webkit-appearance: none;
