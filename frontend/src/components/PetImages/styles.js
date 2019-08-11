@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
     display: flex;
@@ -19,4 +19,4 @@ export const Image = styled.div`
     background: url(${props => props.image});
     background-position: center;
     background-size: cover;
-`;
+`

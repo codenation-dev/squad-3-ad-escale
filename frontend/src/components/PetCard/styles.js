@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 300px;
@@ -31,4 +31,4 @@ export const Container = styled.div`
         border: 1px solid #cecece;
         text-align: center;
     }
-`;
+`

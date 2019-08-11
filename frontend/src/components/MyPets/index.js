@@ -1,11 +1,10 @@
-import React from "react"
-import { withRouter } from "react-router-dom"
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 const MyPets = () => {
-
-    return (
-        <div>Meus pets</div>
-    )
+  return (
+    <div>Meus pets</div>
+  )
 }
 
-export default withRouter(MyPets);
+export default withRouter(MyPets)

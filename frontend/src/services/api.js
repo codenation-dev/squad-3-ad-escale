@@ -1,16 +1,16 @@
-import axios from "axios";
-import { getToken } from "./auth";
+import axios from 'axios'
+import { getToken } from './auth'
 
 const api = axios.create({
-  baseURL: "https://farejando-server.herokuapp.com"
-});
+  baseURL: 'https://farejando-server.herokuapp.com'
+})
 
 api.interceptors.request.use(async config => {
-  const token = getToken();
+  const token = getToken()
   if (token) {
     config.headers = { 'x-access-token': token }
   }
-  return config;
-});
+  return config
+})
 
 export default api

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
   height: 60px;
@@ -11,7 +11,7 @@ export const Container = styled.div`
   a {
     color: #FFF;
   }
-`;
+`
 
 export const Logo = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ export const Logo = styled.div`
       display: none;
     }
   }
-`;
+`
 
 export const SearchBar = styled.div`
   flex: 1;
@@ -54,7 +54,7 @@ export const SearchBar = styled.div`
   svg {
     color: #888;
   }
-`;
+`
 
 export const Button = styled.button`
   padding: 5px 10px;
@@ -64,7 +64,7 @@ export const Button = styled.button`
   font-size: 16px;
   -webkit-appearance: none;
   cursor: pointer;
-`;
+`
 
 export const MenuIcon = styled.div`
   width: 30px;
@@ -98,28 +98,28 @@ export const MenuIcon = styled.div`
     transform-origin: left center;
 
     &:nth-child(1) {
-      -webkit-transform: rotate(${props => props.open ? '45deg': '0'});
-      -moz-transform: rotate(${props => props.open ? '45deg': '0'});
-      -o-transform: rotate(${props => props.open ? '45deg': '0'});
-      transform: rotate(${props => props.open ? '45deg': '0'});
+      -webkit-transform: rotate(${props => props.open ? '45deg' : '0'});
+      -moz-transform: rotate(${props => props.open ? '45deg' : '0'});
+      -o-transform: rotate(${props => props.open ? '45deg' : '0'});
+      transform: rotate(${props => props.open ? '45deg' : '0'});
       top: 10px;
     }
 
     &:nth-child(2) {
-      width: ${props => props.open ? '0%': '100%'};
-      opacity: ${props => props.open ? '0': '1'};
+      width: ${props => props.open ? '0%' : '100%'};
+      opacity: ${props => props.open ? '0' : '1'};
       top: 20px;
     }
 
     &:nth-child(3) {
-      -webkit-transform: rotate(${props => props.open ? '-45deg': '0'});
-      -moz-transform: rotate(${props => props.open ? '-45deg': '0'});
-      -o-transform: rotate(${props => props.open ? '-45deg': '0'});
-      transform: rotate(${props => props.open ? '-45deg': '0'});
-      top: ${props => props.open ? '32px': '30px'};
+      -webkit-transform: rotate(${props => props.open ? '-45deg' : '0'});
+      -moz-transform: rotate(${props => props.open ? '-45deg' : '0'});
+      -o-transform: rotate(${props => props.open ? '-45deg' : '0'});
+      transform: rotate(${props => props.open ? '-45deg' : '0'});
+      top: ${props => props.open ? '32px' : '30px'};
     }
   }
-`;
+`
 
 export const Menu = styled.ul`
   transition: .5s opacity;
@@ -152,4 +152,4 @@ export const Menu = styled.ul`
   li:last-child {
     border-top: 1px solid #ddd;
   }
-`;
+`

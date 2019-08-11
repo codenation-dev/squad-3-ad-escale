@@ -1,7 +1,8 @@
-import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import React from 'react'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-import { isAuthenticated } from "./services/auth";
+import { isAuthenticated } from './services/auth'
 
 import Header from './components/Header'
 import Feed from './components/Feed'
@@ -16,10 +17,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      isAuthenticated() ? <Component {...props} /> : <Redirect to={{ pathname: "/login", state: { from: props.location } }} />
+      isAuthenticated() ? <Component {...props} /> : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
     }
   />
-);
+)
 
 const Routes = () => (
   <BrowserRouter>
@@ -38,6 +39,6 @@ const Routes = () => (
       </Switch>
     </div>
   </BrowserRouter>
-);
+)
 
-export default Routes;
+export default Routes
