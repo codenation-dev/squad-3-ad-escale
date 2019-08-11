@@ -79,7 +79,7 @@ const Register = ({ history }) => {
 }
 
 Register.propTypes = {
-  history: PropTypes.Object
+  history: PropTypes.object
 }
 
 export default withRouter(Register)

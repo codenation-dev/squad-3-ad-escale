@@ -16,7 +16,7 @@ function Header ({ location, history }) {
     if (location.pathname.includes('/busca/')) {
       setSearchString(location.pathname.replace('/busca/', ''))
     }
-  }, [])
+  }, [location.pathname])
 
   const handleChangeSearchString = (value) => {
     setSearchString(value)
@@ -87,8 +87,8 @@ function Header ({ location, history }) {
 }
 
 Header.propTypes = {
-  location: PropTypes.Object,
-  history: PropTypes.Object
+  location: PropTypes.object,
+  history: PropTypes.object
 }
 
 export default withRouter(Header)

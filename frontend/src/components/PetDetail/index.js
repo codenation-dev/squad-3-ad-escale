@@ -23,7 +23,7 @@ const PetCard = ({ match }) => {
       }
     }
     fetch()
-  }, [])
+  }, [match.params.petSlug])
 
   if (isLoading) {
     return (
@@ -50,7 +50,7 @@ const PetCard = ({ match }) => {
 }
 
 PetCard.propTypes = {
-  match: PropTypes.Object
+  match: PropTypes.object
 }
 
 export default withRouter(PetCard)

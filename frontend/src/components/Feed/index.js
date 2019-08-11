@@ -25,7 +25,7 @@ const Feed = ({ match }) => {
       setIsLoading(false)
     }
     fetch()
-  }, [])
+  }, [match.params.searchTerm])
 
   if (isLoading) {
     return (
@@ -55,7 +55,7 @@ const Feed = ({ match }) => {
 }
 
 Feed.propTypes = {
-  match: PropTypes.Object
+  match: PropTypes.object
 }
 
 export default withRouter(Feed)

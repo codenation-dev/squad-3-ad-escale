@@ -15,7 +15,7 @@ const PetCard = ({ pet }) => {
 }
 
 PetCard.propTypes = {
-  pet: PropTypes.Object
+  pet: PropTypes.object
 }
 
 export default withRouter(PetCard)

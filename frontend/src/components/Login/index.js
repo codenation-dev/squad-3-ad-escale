@@ -67,7 +67,7 @@ const Login = ({ history }) => {
 }
 
 Login.propTypes = {
-  history: PropTypes.Object
+  history: PropTypes.object
 }
 
 export default withRouter(Login)
