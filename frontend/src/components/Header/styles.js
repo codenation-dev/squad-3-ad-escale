@@ -3,13 +3,18 @@ import styled from 'styled-components'
 export const Container = styled.div`
   height: 60px;
   padding: 0 30px;
-  background: #7159c1;
-  color: #FFF;
+  background: #fff;
+  box-shadow: rgba(79, 79, 79, 0.1) 0px 0.4rem 2rem 0px;
+  color: #444b54;
   display: flex;
   align-items: center;
 
+  h1 {
+    font-family: 'Pathway Gothic One', sans-serif;
+  }
+
   a {
-    color: #FFF;
+    color: #444b54;
   }
 `
 
@@ -56,18 +61,18 @@ export const SearchBar = styled.div`
   }
 `
 
-export const Button = styled.button`
-  padding: 5px 10px;
-  border-radius: 20px;
-  background-color: transparent;
-  color: #fff;
+export const Login = styled.a`
+  color: #444b54;
   font-size: 16px;
-  -webkit-appearance: none;
   cursor: pointer;
+
+  svg {
+    margin-right: 5px;
+  }
 `
 
 export const MenuIcon = styled.div`
-  width: 30px;
+  width: 25px;
   height: 45px;
   position: relative;
   -webkit-transform: rotate(0deg);
@@ -83,9 +88,9 @@ export const MenuIcon = styled.div`
   span {
     display: block;
     position: absolute;
-    height: 5px;
+    height: 3px;
     width: 100%;
-    background: #fff;
+    background: #444b54;
     border-radius: 9px;
     opacity: 1;
     -webkit-transition: .25s ease-in-out;
@@ -102,7 +107,7 @@ export const MenuIcon = styled.div`
       -moz-transform: rotate(${props => props.open ? '45deg' : '0'});
       -o-transform: rotate(${props => props.open ? '45deg' : '0'});
       transform: rotate(${props => props.open ? '45deg' : '0'});
-      top: 10px;
+      top: 12px;
     }
 
     &:nth-child(2) {
@@ -116,7 +121,7 @@ export const MenuIcon = styled.div`
       -moz-transform: rotate(${props => props.open ? '-45deg' : '0'});
       -o-transform: rotate(${props => props.open ? '-45deg' : '0'});
       transform: rotate(${props => props.open ? '-45deg' : '0'});
-      top: ${props => props.open ? '32px' : '30px'};
+      top: ${props => props.open ? '29px' : '28px'};
     }
   }
 `

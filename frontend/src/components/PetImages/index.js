@@ -13,7 +13,7 @@ const PetCard = ({ images }) => {
 }
 
 PetCard.propTypes = {
-  images: PropTypes.object
+  images: PropTypes.array
 }
 
 export default withRouter(PetCard)

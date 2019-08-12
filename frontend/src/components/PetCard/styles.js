@@ -4,8 +4,8 @@ export const Container = styled.div`
     width: 300px;
     height: 250px;
     background-color: #fff;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    border-radius: 20px;
+    box-shadow: rgba(79, 79, 79, 0.1) 0px 0.4rem 2rem 0px;
+    border-radius: 5px;
     overflow: hidden;
     position: relative;
     margin: 30px;
@@ -17,18 +17,25 @@ export const Container = styled.div`
         max-width: 100%;
         max-height: 80%;
     }
+`
 
-    div {
-        padding: 10px;
-        position: absolute;
-        bottom: 10px;
-        margin: 0 auto;
-        background-color: #fff;
-        border-radius: 20px;
+export const Details = styled.div`
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
         font-weight: bold;
-        width: calc(100% - 20px);
-        left: 10px;
-        border: 1px solid #cecece;
-        text-align: center;
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
     }
 `

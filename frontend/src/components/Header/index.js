@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faSignOutAlt, faPaw, faPlusCircle, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSignOutAlt, faPaw, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-regular-svg-icons'
 
-import LogoImage from '../../assets/farejando.png'
-import { Container, Logo, SearchBar, Button, Menu, MenuIcon } from './styles'
+import LogoImage from '../../assets/farejando-icon.png'
+import { Container, Logo, SearchBar, Login, Menu, MenuIcon } from './styles'
 import { isAuthenticated, logout } from '../../services/auth'
 
 function Header ({ location, history }) {
@@ -47,7 +48,10 @@ function Header ({ location, history }) {
       </SearchBar>
       { !isAuthenticated() ? (
         <Link to="/login">
-          <Button>Entrar</Button>
+          <Login>
+            <FontAwesomeIcon icon={faUser} />
+            Entrar
+          </Login>
         </Link>
       ) : (
         <>
@@ -71,7 +75,7 @@ function Header ({ location, history }) {
             </li>
             <li>
               <Link to="/pets/cadastrar" onClick={() => setShowMenu(false)}>
-                <FontAwesomeIcon icon={faPlusCircle} />
+                <FontAwesomeIcon icon={faPlus} />
                 Cadastrar pet
               </Link>
             </li>
