@@ -22,7 +22,9 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   
-  img {
+  svg {
+    fill: red;
+    stroke: red;
     max-width: 100px;
     max-height: 60px;
   }

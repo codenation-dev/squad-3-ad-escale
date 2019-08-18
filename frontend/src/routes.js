@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { isAuthenticated } from './services/auth'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Feed from './components/Feed'
 import Login from './components/Login'
 import Register from './components/Register'
@@ -37,6 +38,7 @@ const Routes = () => (
         <Route exact path="/busca/:searchTerm?" component={Feed} />
         <Route path="*" component={() => <h1>Page not found</h1>} />
       </Switch>
+      <Footer/>
     </div>
   </BrowserRouter>
 )
