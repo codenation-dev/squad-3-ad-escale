@@ -8,14 +8,13 @@ export const Container = styled.div`
     border-radius: 5px;
     overflow: hidden;
     position: relative;
-    margin: 30px;
+    margin: 0 30px 30px 30px;
     background: url(${props => props.img});
     background-position: center;
     background-size: cover;
 
     @media screen and (max-width: 700px) {
-        max-width: 100%;
-        max-height: 80%;
+        width: calc(100vw - 30px);
     }
 `
 

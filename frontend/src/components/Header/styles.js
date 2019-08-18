@@ -41,12 +41,20 @@ export const Logo = styled.div`
 export const SearchBar = styled.div`
   flex: 1;
   display: flex;
-  align-items: center;
-  padding: 5px 10px;
-  border-radius: 15px;
-  border: 1px solid #cecece;
+  justify-content: flex-end;
   background-color: #fff;
-  margin: 0 25px 0 15px;
+  margin: 0 15px;
+
+  div {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: ${props => props.open ? '1px solid #cecece' : 'none'};
+    width: ${props => props.open ? '100%' : '35px'};
+    transition: .5s width;
+    max-width: 500px;
+  }
 
   input {
     width: 100%;
@@ -58,6 +66,7 @@ export const SearchBar = styled.div`
 
   svg {
     color: #888;
+    cursor: pointer;
   }
 `
 
@@ -127,17 +136,16 @@ export const MenuIcon = styled.div`
 `
 
 export const Menu = styled.ul`
-  transition: .5s opacity;
-  opacity: ${props => props.show ? 1 : 0};
-  z-index: ${props => props.show ? 1 : -1};
+  transition: .5s right;
+  z-index: 1;
   position: fixed;
-  right: 10px;
+  right: ${props => props.show ? 0 : '-100%'};
   top: 50px;
   list-style: none;
   background-color: #fff;
   color: black;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
   li {

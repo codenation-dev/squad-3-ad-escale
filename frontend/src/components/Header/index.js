@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOutAlt, faPaw, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faSignOutAlt, faPaw, faPlus, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 
 import LogoImage from '../../assets/farejando-icon.png'
@@ -12,6 +12,7 @@ import { isAuthenticated, logout } from '../../services/auth'
 function Header ({ location, history }) {
   const [searchString, setSearchString] = useState('')
   const [showMenu, setShowMenu] = useState(false)
+  const [showSearchBar, setShowSearchBar] = useState(false)
 
   useEffect(() => {
     if (location.pathname.includes('/busca/')) {
@@ -34,6 +35,10 @@ function Header ({ location, history }) {
     history.push('/')
   }
 
+  const handleToggleSearchBar = () => {
+    setShowSearchBar(!showSearchBar)
+  }
+
   return (
     <Container>
       <Link to="/">
@@ -42,9 +47,12 @@ function Header ({ location, history }) {
           <h1>Farejando</h1>
         </Logo>
       </Link>
-      <SearchBar>
-        <input type="text" placeholder="Buscar..." value={searchString} onChange={(e) => handleChangeSearchString(e.target.value)}/>
-        <FontAwesomeIcon icon={faSearch} />
+      <SearchBar open={showSearchBar}>
+        <div>
+          <input type="text" placeholder="Buscar..." value={searchString} onChange={(e) => handleChangeSearchString(e.target.value)}/>
+          {!showSearchBar && <FontAwesomeIcon icon={faSearch} size="lg" onClick={handleToggleSearchBar}/>}
+          {showSearchBar && <FontAwesomeIcon icon={faTimes} onClick={handleToggleSearchBar}/>}
+        </div>
       </SearchBar>
       { !isAuthenticated() ? (
         <Link to="/login">
@@ -61,6 +69,12 @@ function Header ({ location, history }) {
             <span></span>
           </MenuIcon>
           { <Menu show={showMenu}>
+            <li>
+              <Link to="/" onClick={() => setShowMenu(false)}>
+                <FontAwesomeIcon icon={faHome} />
+                Início
+              </Link>
+            </li>
             <li>
               <Link to="/meus-dados" onClick={() => setShowMenu(false)}>
                 <FontAwesomeIcon icon={faUser} />
