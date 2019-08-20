@@ -22,6 +22,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.api',
     'rest_framework'
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration'
 ]
 
 MIDDLEWARE = [
@@ -92,4 +97,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTH_USER_MODEL = 'api.CustomUser'
+SITE_ID = 1
